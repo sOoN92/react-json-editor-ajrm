@@ -89,11 +89,6 @@ class JSONInput extends Component {
             };
         this.style = style;
         this.confirmGood = 'confirmGood' in this.props ? this.props.confirmGood : true;
-        const
-            totalHeight  = (this.props.height||'610px'),
-            totalWidth   = (this.props.width||'479px');
-        this.totalHeight = totalHeight;
-        this.totalWidth  = totalWidth;
         if((!('onKeyPressUpdate' in this.props)) || this.props.onKeyPressUpdate){
             if(!this.timer) this.timer = setInterval(this.scheduledUpdate,100);
         }
@@ -114,8 +109,8 @@ class JSONInput extends Component {
             colors       = this.colors,
             style        = this.style,
             confirmGood  = this.confirmGood,
-            totalHeight  = this.totalHeight,
-            totalWidth   = this.totalWidth,
+            totalHeight  = this.props.height || '610px',
+            totalWidth   = this.props.width || '479px',
             hasError     = !!this.props.error || (error ? 'token' in error : false);
         this.renderCount++;
         return (
